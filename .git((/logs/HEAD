@@ -1,0 +1,60 @@
+0000000000000000000000000000000000000000 73a761730483d9d164b047beb820f5468f90a1b2 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696306338 +0700	clone: from https://gitlab.com/anjaranasa/app-mbkm.git
+73a761730483d9d164b047beb820f5468f90a1b2 c7ff58078b5ebc356da246e24c5846c264178ac6 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696311633 +0700	commit: menambahkan nama dosen di detail mbkm
+c7ff58078b5ebc356da246e24c5846c264178ac6 0000000000000000000000000000000000000000 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696311759 +0700	Branch: renamed refs/heads/main to refs/heads/hamid
+0000000000000000000000000000000000000000 c7ff58078b5ebc356da246e24c5846c264178ac6 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696311759 +0700	Branch: renamed refs/heads/main to refs/heads/hamid
+c7ff58078b5ebc356da246e24c5846c264178ac6 c7ff58078b5ebc356da246e24c5846c264178ac6 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696311770 +0700	checkout: moving from hamid to hamid
+c7ff58078b5ebc356da246e24c5846c264178ac6 75090a3887ec81331a60e2c0e0a75f719dd7f2ac 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696311844 +0700	commit: first commit
+75090a3887ec81331a60e2c0e0a75f719dd7f2ac 6740f9572c43f21a07a2e2e7131d0ef4668a3011 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696316285 +0700	commit: add pembimbing eksternal in detail mbkm
+6740f9572c43f21a07a2e2e7131d0ef4668a3011 9c660bc5fcc621c474642aec5c80c8d9ee7c2af8 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696324660 +0700	commit: add nama dosen dan dosen eksternal di detail direktur dan dosen
+9c660bc5fcc621c474642aec5c80c8d9ee7c2af8 73a761730483d9d164b047beb820f5468f90a1b2 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696393359 +0700	checkout: moving from hamid to main
+73a761730483d9d164b047beb820f5468f90a1b2 409d4a2a80e69b53b7627b5b6b9d08a29f488e3c 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696393417 +0700	pull: Fast-forward
+409d4a2a80e69b53b7627b5b6b9d08a29f488e3c 9c660bc5fcc621c474642aec5c80c8d9ee7c2af8 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696393573 +0700	checkout: moving from main to hamid
+9c660bc5fcc621c474642aec5c80c8d9ee7c2af8 8079d984253cd368860e203bbfcfc17a2911a8eb 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696393773 +0700	pull: Fast-forward
+8079d984253cd368860e203bbfcfc17a2911a8eb adcd5dd3f64934a59ea966ee18c2a75919ada02a 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696407475 +0700	commit: membuat login dosen dengan nip
+adcd5dd3f64934a59ea966ee18c2a75919ada02a 0d841f0ebb97c72b01933acc8324f380b443d13c 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696408231 +0700	pull: Fast-forward
+0d841f0ebb97c72b01933acc8324f380b443d13c 00bde2c0420d55dbc49acb0e088ce994508cf8b3 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696474516 +0700	commit: menambahkan insert notif di acc dosbing,pemblap,kajur,kaprodi
+00bde2c0420d55dbc49acb0e088ce994508cf8b3 39dfec38ef5e03f21e254a88e0a1f99990cfbc6c 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696479296 +0700	commit: menampilkan notifikasi di mahasiswa
+39dfec38ef5e03f21e254a88e0a1f99990cfbc6c 3048a8d27c0601278d54a4c27e04b2316bb580fc 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1696495308 +0700	pull: Fast-forward
+3048a8d27c0601278d54a4c27e04b2316bb580fc ba3d228f157ebf2e7a8de335855a0715b28c39f9 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697013302 +0700	commit: menambahkan role admin
+ba3d228f157ebf2e7a8de335855a0715b28c39f9 8772b2f5f053564145c399c5ccacd8c338994993 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697016962 +0700	commit: memindahkan pengambilan semua dosen di change role ke js
+8772b2f5f053564145c399c5ccacd8c338994993 c9514f59f34e0fc191a88feda6fa8f24d0a44c81 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697017180 +0700	commit: memperbaiki flash message di admin
+c9514f59f34e0fc191a88feda6fa8f24d0a44c81 284540cd106186e43cc2f769f728404e2c4d3412 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697082929 +0700	commit: memperbaiki routing url admin
+284540cd106186e43cc2f769f728404e2c4d3412 8b5159af7b42a85c10add99ff6214f2ab8078211 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697091688 +0700	commit: memperbaiki redirect back di mbkm
+8b5159af7b42a85c10add99ff6214f2ab8078211 7099e43ad796fd6b3990b0f4768594e9c908696d 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697161977 +0700	commit: add fitur edit data dosen
+7099e43ad796fd6b3990b0f4768594e9c908696d ae50e00ef119dad0e224024dc122875feff10ae2 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697179467 +0700	commit: auto isi prodi mahasiswa di daftar, menambahkan tanggal di logbook dan bisa di delete
+ae50e00ef119dad0e224024dc122875feff10ae2 5f2ea84ecc5af0ee1010e2381218b47557464811 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697181594 +0700	commit: memisahkan set dosbing di kaprodi, fix nama mahasiswa di set dosbing, fix response acc kajur
+5f2ea84ecc5af0ee1010e2381218b47557464811 3cd435fe778a16dd7cf487c089b8d95b55baa336 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697183128 +0700	commit: fix detail mhs di pemlap
+3cd435fe778a16dd7cf487c089b8d95b55baa336 b93465ab362e4328d5f41604b19e26ccd9357d47 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697189609 +0700	commit: membuat tampilan chart
+b93465ab362e4328d5f41604b19e26ccd9357d47 0a629eed0f1951b2b88d3c529f5841cf4a109c77 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697449696 +0700	commit: menambahkan filter di chart dan tabel pimpinan
+0a629eed0f1951b2b88d3c529f5841cf4a109c77 b79244e1f522c0739bb1e90e340cf61f24b2e54e 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697508567 +0700	commit: menambahkan export csv di pimpinan
+b79244e1f522c0739bb1e90e340cf61f24b2e54e ac1fcc058d2eaf267c7e3905a98256d1f57526e5 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697511039 +0700	commit: menambahkan edit export csv
+ac1fcc058d2eaf267c7e3905a98256d1f57526e5 731af1eba5a03588ebc253194346a31e2f73b60d 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697511096 +0700	commit: edit export csv
+731af1eba5a03588ebc253194346a31e2f73b60d 96c8d982cc7b1b679797fa7862252005359a7915 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697511949 +0700	commit: make env.example
+96c8d982cc7b1b679797fa7862252005359a7915 a46d730586aaf8d07c0e3b1a1391a3d2d08bb8b0 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697512825 +0700	commit: add font
+a46d730586aaf8d07c0e3b1a1391a3d2d08bb8b0 97d53f16097d51240f0c82eba8469903c456a133 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697515832 +0700	pull: Fast-forward
+97d53f16097d51240f0c82eba8469903c456a133 978e976af344d6225c5bd848f83fe7ceb2fda962 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697609840 +0700	commit: set dosbing dalam satu jurusan
+978e976af344d6225c5bd848f83fe7ceb2fda962 d12dce31b827743285156d3c374688e62ca200c8 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697615590 +0700	commit: menambahkan tgl awala dan akhir di daftar mbkm
+d12dce31b827743285156d3c374688e62ca200c8 698f92716ce106e2d35bb419fc7edd4ddbb71161 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697620829 +0700	commit: menggabungkan filter jurusan dan prodi
+698f92716ce106e2d35bb419fc7edd4ddbb71161 dff9e4f71bd33de400cc3cdc30254a8d87c45f93 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697621542 +0700	commit: fix set dosbing
+dff9e4f71bd33de400cc3cdc30254a8d87c45f93 57a7e24ea539b02ac34caaa1444c5e1e03bc12b5 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697691814 +0700	commit: membuat card nilai dan sk
+57a7e24ea539b02ac34caaa1444c5e1e03bc12b5 04de8482d31f320ac58ca1a27fa801d17620ec66 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697691826 +0700	pull: Merge made by the 'ort' strategy.
+04de8482d31f320ac58ca1a27fa801d17620ec66 04a93752e738e8b5ab93b26a237b083e4f5fdb3d 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697694594 +0700	pull: Fast-forward
+04a93752e738e8b5ab93b26a237b083e4f5fdb3d 375b15536168f547d919bfb6e1fcfd85aa9e0222 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697696298 +0700	pull: Fast-forward
+375b15536168f547d919bfb6e1fcfd85aa9e0222 a38c3e8eadabb86f2311b57a0400fd6dee6d913f 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697696447 +0700	pull: Fast-forward
+a38c3e8eadabb86f2311b57a0400fd6dee6d913f 3e797de8942416d4cb53dc964e28a0b3e363a1f7 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697701865 +0700	commit: fix logbook
+3e797de8942416d4cb53dc964e28a0b3e363a1f7 4c1bd5faee3c403ca285409a63852ee1d57fca1f 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697705865 +0700	commit: membuat sistem nilai mbkm
+4c1bd5faee3c403ca285409a63852ee1d57fca1f 3e4cb1931dbb987f0900b76b6a8ed0e575655b0e 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697768949 +0700	commit: add email notif to pemlap
+3e4cb1931dbb987f0900b76b6a8ed0e575655b0e 30bed5e16bf4f08c334e0c6ed16b1e19335cc38e 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697773994 +0700	commit: memasukkan data dosen ke SK
+30bed5e16bf4f08c334e0c6ed16b1e19335cc38e cfbbb2e2eb700ea463eb89ebe85f332cf5a63303 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697776277 +0700	commit: menambahkan nilai akhir ke kaprodi dan kajur
+cfbbb2e2eb700ea463eb89ebe85f332cf5a63303 c1f445c67bf789aa297661dfaeca9faee9e423d3 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697781718 +0700	commit: add datatable di update data dosen role admim
+c1f445c67bf789aa297661dfaeca9faee9e423d3 0a3f96ff5f9b06a77fe1b1354e921ec672d83e12 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697785257 +0700	commit: fix dosen sk
+0a3f96ff5f9b06a77fe1b1354e921ec672d83e12 3192a6bffbc7902a532caceedb0c707c90cf83fd 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697788619 +0700	commit: fix SK form
+3192a6bffbc7902a532caceedb0c707c90cf83fd cfe2c40a005f10feebaa7878f4b40f92952ae932 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1697792769 +0700	commit: edit nama file keterangan sehat
+cfe2c40a005f10feebaa7878f4b40f92952ae932 7cd9b4b462be3acbd7adf92a1e33240bce2b3388 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698036573 +0700	commit: menambahkan fungsi menagmbil IPK mhs
+7cd9b4b462be3acbd7adf92a1e33240bce2b3388 b855a559e2251338bc93af0adf82aa6a8c8c5e1d 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698048870 +0700	commit: add delete input button in regis mbkm
+b855a559e2251338bc93af0adf82aa6a8c8c5e1d 750294d9946b80abd5e42db43cb2878d1d193878 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698053454 +0700	commit: add select2 in nama anggota
+750294d9946b80abd5e42db43cb2878d1d193878 172f6f865d6c9e5b88ac6ddeee89c03a0df6e48e 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698113823 +0700	commit: menambahkan mahasiswa id ke database kkn
+172f6f865d6c9e5b88ac6ddeee89c03a0df6e48e 871e1458e242bcefde75cdf154b280b86abc95ad 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698199777 +0700	commit: add detail mbkm
+871e1458e242bcefde75cdf154b280b86abc95ad 3dcf8729866a09395d958811f8179c7a172863b8 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698213094 +0700	commit: menambahkan template dokumen
+3dcf8729866a09395d958811f8179c7a172863b8 e4e6c4556c44d61ddd6148605abed2fdb12b4708 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698213731 +0700	commit: change page title
+e4e6c4556c44d61ddd6148605abed2fdb12b4708 f1a65f452720c7ceb776994a05a748830a256cf8 19Hamid91 <99725605+19Hamid91@users.noreply.github.com> 1698303263 +0700	commit: test login via api
