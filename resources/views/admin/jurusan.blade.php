@@ -45,6 +45,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama_jurusan }}</td>
                                         <td>
+                                            <button type="button" class="btn bg-warning btn-md ml-auto mr-3" id="edit_data" data-toggle="modal"
+                                            data-target="#exampleModalEditJurusan" style="padding: 10px" data-id="{{$item->id}}" data-jurusan="{{ $item->nama_jurusan }}"><b>Edit</b></button>
                                             <a type="button" class="btn bg-danger btn-md ml-auto mr-3" id="delete_data" style="padding: 10px" data-id="{{$item->id}}"><b>Delete</b></a>
                                         </td>
                                     </tr>
@@ -103,6 +105,14 @@
                                 }
                             })
                     }})
+        })
+        $('#myTable').on('click','#edit_data', function(e){
+            e.preventDefault();
+            var id = $(this).data('id')
+            var jurusan = $(this).data('jurusan')
+            // console.log(id, jurusan)
+            $('#id_jurusan').val(id)
+            $('#edit_nama_jurusan').val(jurusan)
         })
     </script>
 @endsection

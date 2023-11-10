@@ -259,6 +259,21 @@ class AdminController extends Controller
         }
         
     }
+    public function editJurusan(Request $req) 
+    {
+        $getJurusan = Jurusan::findOrFail($req->id_jurusan);
+        if($req->edit_nama_jurusan == null){
+            return redirect()->back()->with('fail', 'Field kosong');
+        } else {
+            $getJurusan->nama_jurusan = $req->edit_nama_jurusan;
+        }
+        $check = $getJurusan->update();
+        if($check){
+            return redirect()->back()->with('success', 'Berhasil mengedit jurusan');        
+        } else {
+            return redirect()->back()->with('fail', 'Gagal mengedit jurusan');        
+        }
+    }
     public function deleteJurusan($id) 
     {
         $checkJurusan = Jurusan::find($id)->delete();

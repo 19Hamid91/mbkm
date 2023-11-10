@@ -996,6 +996,32 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModalEditJurusan" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Jurusan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="" style="display: none" id="alertChange"></div>
+                    <span id="progressChange" style="display: none">Proses...</span>
+                    <form action="/admin/editJurusan" method="post">
+                        @csrf
+                        <input id="id_jurusan" name="id_jurusan" type="hidden" value="">
+                        <div class="form-group">
+                            <label for="">Nama Jurusan</label>
+                            <input type="text" required name="edit_nama_jurusan" id="edit_nama_jurusan" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-inverse-primary" id="btn-edit-jurusan">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
     @if (Auth::user()->role == 'PIC' || Auth::user()->pic)
     <div class="modal fade" id="exampleModalSK" tabindex="-1" aria-labelledby="exampleModalLabel"

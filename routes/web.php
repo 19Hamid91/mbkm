@@ -143,6 +143,7 @@ Route::group(['middleware' => ['auth']], function () {
                 Route::get('/prodi', 'prodi');
                 Route::post('/addProdi', 'addProdi');
                 Route::post('/editProdi', 'editProdi');
+                Route::post('/editJurusan', 'editJurusan');
             });
         });
     });
