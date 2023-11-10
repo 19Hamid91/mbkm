@@ -40,6 +40,7 @@
                         @endif
 
                         <div class="table-responsive">
+                            <input id="source" name="source" type="hidden" value="KAPRODI">
                             <table class="table table-hover" id="myTable">
                                 <thead>
                                     <tr>
@@ -124,6 +125,7 @@
 
         $("#kajurBtn, #kaprodiBtn, #direkturBtn, #adminBtn, #picBtn").on("click", function(e) {
             var role = $(this).data('role');
+            $('#source').val(role);
             var pic = role == "PIC" ? true : false;
             e.preventDefault(),
             $('#myTable').DataTable( {
@@ -175,6 +177,7 @@
         $("#myTable").on("click", "#removeBtn", function(e) {
             var dosenId = $(this).data('dosenid')
             var nmDosen = $(this).data('nmdosen');
+            var source = $('#source').val();
             nmDosen = titleCase(nmDosen)
 
             e.preventDefault()
@@ -187,7 +190,7 @@
                 })
                 .then((willDelete) => {
                     if (willDelete) {
-                        fetch("/api/changeToDosen/"+dosenId)
+                        fetch("/api/changeToDosen/"+dosenId+"/"+source)
                         .then((res)=>res.json())
                         .then(result=>{
                                     if(result.success===1){

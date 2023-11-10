@@ -36,7 +36,7 @@ Route::get('/dosbing/{type}/{id}/acc', [DosbingController::class, 'acc']);
 Route::get('/pemlap/{type}/{id}/acc', [PemlapController::class, 'acc']);
 Route::get('/forget/{email}', [AuthController::class, 'resetPassword']);
 Route::get('/getDosen/{role}', [AdminController::class, 'getDataDosen']);
-Route::get('/changeToDosen/{id}', [AdminController::class, 'changeToDosen']);
+Route::get('/changeToDosen/{id}/{source}', [AdminController::class, 'changeToDosen']);
 Route::get('/getAllDosen/{jenis}', [AdminController::class, 'getAllDosen']);
 Route::get('/updateDataDosen/{nip}', [AdminController::class, 'updateDataDosen']);
 Route::get('/pimpinan/dataAll/{tahun}', [DirekturController::class, 'dataAll']);

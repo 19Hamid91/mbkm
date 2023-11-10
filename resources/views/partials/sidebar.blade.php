@@ -2,7 +2,7 @@
     <ul class="nav">
         @if (Auth::user()->role!="MHS")
              <li
-            class="nav-item {{ Request::is('/') || Request::is('kaprodi')|| Request::is('dosbing') || Request::is('kajur') || Request::is('pimpinan')|| Request::is('pemlap') || Request::is('admin') || Request::is('pic') ? 'active' : '' }}">
+            class="nav-item {{ Request::is('/') || Request::is('kaprodi')|| (Request::is('dosbing') && Auth::user()->role =="DOSEN") || Request::is('kajur') || Request::is('pimpinan')|| Request::is('pemlap') || Request::is('admin') || (Request::is('pic') && Auth::user()->role =="PIC") ? 'active' : '' }}">
             <a class="nav-link "
                 href="@if (Auth::user()->role=="MHS") /
             @elseif(Auth::user()->role=="KAPRODI")
@@ -27,6 +27,14 @@
             </a>
         </li>
         @endif
+        @if(Auth::user()->role !="DOSEN" && isset(Auth::user()->dosen->mbkm))
+            <li class="nav-item {{ Request::is('dosbing') ? 'active' : '' }}">
+                <a class="nav-link " href="/dosbing">
+                    <i class="ti-archive menu-icon"></i>
+                    <span class="menu-title">Dosbing</span>
+                </a>
+            </li>
+        @endif 
        
         @if (Auth::user()->role == 'MHS')
             {{-- <li
@@ -69,15 +77,15 @@
                     <span class="menu-title">History</span>
                 </a>
             </li>
-        @elseif(Auth::user()->role=="DOSEN" || Auth::user()->role=="PEMLAP")
+        @elseif(Auth::user()->role=="DOSEN" || Auth::user()->role=="PEMLAP" || isset(Auth::user()->dosen->mbkm))
             <li class="nav-item {{ Request::is('dosbing/logbook')||Request::is('pemlap/logbook') ? 'active' : '' }}">
-                <a class="nav-link " href="{{ (Auth::user()->role=="DOSEN")?'/dosbing/logbook':'/pemlap/logbook' }}">
+                <a class="nav-link " href="{{ (Auth::user()->role=="DOSEN" || Auth::user()->dosen->mbkm)?'/dosbing/logbook':'/pemlap/logbook' }}">
                     <i class="ti-book menu-icon"></i>
                     <span class="menu-title">Logbook</span>
                 </a>
             </li>
             <li class="nav-item {{ Request::is('dosbing/report') ||Request::is('pemlap/report') ? 'active' : '' }}">
-                <a class="nav-link " href="{{ (Auth::user()->role=="DOSEN")?'/dosbing/report':'/pemlap/report' }}">
+                <a class="nav-link " href="{{ (Auth::user()->role=="DOSEN" || Auth::user()->dosen->mbkm)?'/dosbing/report':'/pemlap/report' }}">
                     <i class="ti-package menu-icon"></i>
                     <span class="menu-title">Laporan</span>
                 </a>
@@ -115,7 +123,14 @@
                 </a>
             </li>
         @endif
-
+        @if(Auth::user()->role !="PIC" && isset(Auth::user()->pic))
+            <li class="nav-item {{ Request::is('pic') ? 'active' : '' }}">
+                <a class="nav-link " href="/pic">
+                    <i class="ti-archive menu-icon"></i>
+                    <span class="menu-title">PIC</span>
+                </a>
+            </li>
+        @endif
         {{-- <li class="nav-item">
         <a class="nav-link" href="pages/documentation/documentation.html">
             <i class="icon-paper menu-icon"></i>

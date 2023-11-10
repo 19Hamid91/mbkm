@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Prodi extends Model
 {
     use HasFactory;
+
+    function jurusan(){
+        return $this->belongsTo(Jurusan::class, 'jurusan_id','id');
+    }
 }

@@ -94,7 +94,7 @@
                                                     // echo $getDateLast;
                                                 @endphp
 
-                                                @if (Auth::user()->role == 'DOSEN')
+                                                @if (Auth::user()->role == 'DOSEN' || isset(Auth::user()->dosen->mbkm))
                                                     @if ($item->report != null)
                                                         <button data-id="{{ $item->report }}" id="btn_report_pem"
                                                             data-toggle="modal" data-target="#exampleModalReportPembimbing"

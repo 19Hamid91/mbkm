@@ -17,11 +17,15 @@ class AdminController extends Controller
     public function index() {
         $data['pic'] = Pic::all();
         $data['jurusan'] = Jurusan::all();
-        $data['prodi'] = Prodi::all();
+        $data['prodi'] = Prodi::with('jurusan')->get();
         return view('admin.admin', $data);
     }
     public function getDataDosen($role) {
-        $data = User::with('pic')->where('role',$role)->with('dosen')->orderBy('name')->get();
+        if($role == 'PIC'){
+            $data = User::whereHas('pic')->with('pic','dosen')->orderBy('name')->get();
+        } else {
+            $data = User::with('pic')->where('role',$role)->with('dosen')->orderBy('name')->get();
+        }
         // dd($data);
         return response()->json(['success' => 1, 'message' => 'berhasil', 'data' => $data]);
     }
@@ -29,15 +33,37 @@ class AdminController extends Controller
     public function changeRole(Request $req){
         // dd($req);
         $user = User::where('email',$req->dosen)->first();
+        $getProdi = Prodi::where('user_id', $user->id)->first();
+        if($getProdi){
+            $getProdi->user_id = null;
+            $getProdi->kaprodi = null;
+            $getProdi->update();
+        }
+        $getJurusan = Jurusan::where('user_id', $user->id)->first();
+        if($getJurusan){
+            $getJurusan->user_id = null;
+            $getJurusan->kajur = null;
+            $getJurusan->update();
+        }
         if($req->role_baru == "PIC"){
-            $checkDosen = Pic::where('dosen_id', $user->dosen->id)->first();
-            if(!$checkDosen) {
-                $createPic =Pic::find($req->pic);
+            $checkDosen = Pic::find($req->pic);
+            if($checkDosen && $checkDosen->user_id != null && $checkDosen->dosen_id != null) {
+                $createPic =new Pic;
+                $createPic->jenis_pic = $checkDosen->jenis_pic;
+                $createPic->type_program_id = $checkDosen->type_program_id;
                 $createPic->user_id = $user->id;
                 $createPic->dosen_id = $user->dosen->id;
-                $createPic->update();
+                $createPic->save();
+                if($user->role != 'DOSEN'){
+                    return redirect()->back()->with('success', ''.$user->name.' ditambahkan role PIC');
+                }
             } else {
-                return redirect()->back()->with('fail', 'Dosen sudah ada');
+                $checkDosen->user_id = $user->id;
+                $checkDosen->dosen_id = $user->dosen->id;
+                $checkDosen->update();
+                if($user->role != 'DOSEN'){
+                    return redirect()->back()->with('success', ''.$user->name.' ditambahkan role PIC');
+                }
             }
         } elseif($req->role_baru == "KAPRODI"){
             $getProdi = Prodi::where('id', $req->prodi)->first();
@@ -63,23 +89,34 @@ class AdminController extends Controller
         
         return redirect()->back()->with('success', 'Role berhasil diupdate');
     }
-    public function changeToDosen($id){
+    public function changeToDosen($id, $source){
+        $changeSource = $source;
+        $userHasPic = User::whereHas('pic')->where('id', $id)->first();
         $user = User::find($id);
         if($user->role == "PIC"){
             $getPic = Pic::where('user_id', $user->id)->first();
+            $countPic = Pic::where('type_program_id', $getPic->type_program_id)->get()->count();
             $user->role = "DOSEN";
             $user->update();
-            if($getPic) {
+            if($countPic == 1) {
                 
                 $getPic->user_id = null;
                 $getPic->dosen_id = null;
                 $getPic->update();
+                return response()->json(['success' => 1, 'message' => 'Data dan role PIC berhasil dihapus']);
+            } elseif($countPic > 1) {
+                $getPic->delete();
                 return response()->json(['success' => 1, 'message' => 'Data dan role PIC berhasil dihapus']);
             } else {
                 return response()->json(['success' => 1, 'message' => 'Role PIC berhasil dihapus']);
             }
         } elseif($user->role == "KAPRODI"){
             $getProdi = Prodi::where('user_id', $id)->first();
+            if($changeSource == 'PIC' && $userHasPic){
+                $pic = Pic::where('user_id', $userHasPic->id)->first();
+                $pic->delete();
+                return response()->json(['success' => 1, 'message' => 'Role pic telah dilepas dari Kaprodi']);
+            }
             $user->role = "DOSEN";
             $user->update();
             if($getProdi) {
@@ -93,6 +130,11 @@ class AdminController extends Controller
             }
         } elseif($user->role == "KAJUR"){
             $getJurusan = Jurusan::where('user_id', $id)->first();
+            if($changeSource == 'PIC' && $userHasPic){
+                $pic = Pic::where('user_id', $userHasPic->id)->first();
+                $pic->delete();
+                return response()->json(['success' => 1, 'message' => 'Role pic telah dilepas dari Kajur']);
+            }
             $user->role = "DOSEN";
             $user->update();
             if($getJurusan) {
@@ -113,7 +155,7 @@ class AdminController extends Controller
 
     public function getAllDosen($jenis){
         if($jenis == "all") {
-            $data = User::where('role','DOSEN')->orderBy('name')->get();
+            $data = User::whereIn('role', ['DOSEN', 'KAPRODI', 'KAJUR', 'PIMPINAN'])->orderBy('name')->get();
             return response()->json(['success' => 1, 'message' => 'berhasil', 'data' => $data]);
         } elseif($jenis == "pic") {
             $data = User::where('role','DOSEN')->has('pic', '<', 1)->orderBy('name')->get();
@@ -247,6 +289,27 @@ class AdminController extends Controller
             return redirect()->back()->with('fail', 'Nama prodi sudah ada atau nama jurusan tidak ditemukan');
         }
         
+    }
+    public function editProdi(Request $req) 
+    {
+        $getProdi = Prodi::findOrFail($req->id_prodi);
+        if($req->edit_nama_prodi == null && $req->edit_jurusan_id == null){
+            return redirect()->back()->with('fail', 'Field kosong');
+        }
+        if($req->edit_nama_prodi)
+        {
+            $getProdi->nama_prodi = $req->edit_nama_prodi;
+        }
+        if($req->edit_jurusan_id)
+        {
+            $getProdi->jurusan_id = $req->edit_jurusan_id;
+        }
+        $check = $getProdi->update();
+        if($check){
+            return redirect()->back()->with('success', 'Berhasil mengedit prodi');        
+        } else {
+            return redirect()->back()->with('fail', 'Gagal mengedit prodi');        
+        }
     }
     public function deleteProdi($id) 
     {

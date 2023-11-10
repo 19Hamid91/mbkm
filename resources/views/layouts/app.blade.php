@@ -956,8 +956,48 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModalEditProdi" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Prodi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="" style="display: none" id="alertChange"></div>
+                    <span id="progressChange" style="display: none">Proses...</span>
+                    <form action="/admin/editProdi" method="post">
+                        @csrf
+                        <input id="id_prodi" name="id_prodi" type="hidden" value="">
+                        <div class="form-group">
+                            <label for="">Nama Prodi</label>
+                            <input type="text" required name="edit_nama_prodi" id="edit_nama_prodi" class="form-control">
+                        </div>
+                        <div class="form-group" id="edit_jurusan">
+                            <label for="">Jurusan</label>
+                            <div class="table-responsive">
+                                <select required name="edit_jurusan_id" id="edit_jurusan_id" style="width: 100%"
+                                    class="js-example-basic-single select2-hidden-accessible" id="edit_jurusan_id">
+                                    <option value="">sdsd</option>
+                                    @if(isset($jurusan))
+                                        @foreach($jurusan as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-inverse-primary" id="btn-add-prodi">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
-    @if (Auth::user()->role == 'PIC')
+    @if (Auth::user()->role == 'PIC' || Auth::user()->pic)
     <div class="modal fade" id="exampleModalSK" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-md">
@@ -1043,7 +1083,7 @@
             </div>
         </div>
     @endif
-    @if (Auth::user()->role == 'PIC')
+    @if (Auth::user()->role == 'PIC' || Auth::user()->pic)
         <div class="modal fade" id="exampleModalPicNilai" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-md">

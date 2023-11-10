@@ -74,6 +74,9 @@ class AuthController extends Controller
                     // return $getUser;
                     if (Auth::loginUsingId($getUser->id))
                         return redirect('/pemlap');
+                } elseif ($getUser->role == "ADMIN") {
+                    if (Auth::loginUsingId($getUser->id))
+                        return redirect('/admin');
                 }
             }
         }
@@ -100,11 +103,11 @@ class AuthController extends Controller
                     $newUser->name = $data['nm_pegawai'];
                     $newUser->email = $data['nip_baru'];
                     $checkAdmin = User::where('role', "ADMIN")->first();
-                    if($checkAdmin){
-                        $newUser->role = "DOSEN";
-                    } else {
-                        $newUser->role = "ADMIN";
-                    }
+                    // if($checkAdmin){
+                    $newUser->role = "DOSEN";
+                    // } else {
+                    //     $newUser->role = "ADMIN";
+                    // }
                     $newUser->password = bcrypt("123");
                     $newUser->save();
 

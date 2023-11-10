@@ -31,8 +31,10 @@
                                 <thead>
                                     <tr>
                                         <th>Nama (nim)</th>
-                                        <th>Status Persetujuan Logbook</th>
-                                        <th>Logbook Pembimbing Lapangan</th>
+                                        <th>Dosen Pembimbing</th>
+                                        <th>Pembimbing Lapangan</th>
+                                        {{-- <th>Status Persetujuan Logbook</th>
+                                        <th>Logbook Pembimbing Lapangan</th> --}}
                                         <th>Tahun</th>
                                         <th>Status MBKM</th>
                                         <th>Aksi</th>
@@ -47,7 +49,7 @@
                                                     data-toggle="modal"
                                                     data-target="#exampleModalDetail">{{ $item->mahasiswa->nama . '(' . $item->mahasiswa->nim . ')' }}</a>
                                             </td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($item->dosbing_logbook == 'Y')
                                                     <div class="badge badge-success">Disetujui</div>
                                                 @else
@@ -60,7 +62,9 @@
                                                 @else
                                                     <div class="badge badge-danger">Menunggu</div>
                                                 @endif
-                                            </td>
+                                            </td> --}}
+                                            <td>{{ $item->dosen ? $item->dosen->nama : "-" }}</td>
+                                            <td>{{ $item->dosbingex ? $item->dosbingex->nama : "-" }}</td>
                                             <td>{{ $item->tahun }}</td>
                                             <td>
                                                 <center>
@@ -80,7 +84,7 @@
                                                     $dateReport = date('Y-m-d', strtotime($getMonth, strtotime($item->date_pers)));
                                                     // echo $dateReport;
                                                 @endphp
-                                                @if (Auth::user()->role == 'DOSEN')
+                                                @if (Auth::user()->role == 'DOSEN' || isset(Auth::user()->dosen->mbkm))
                                                     {{-- @if (date('Y-m-d') >= $dateReport) --}}
                                                         @if ($item->dosbing_logbook == null)
                                                         <button type="button" class="btn btn-inverse-info" data-id="{{ $item->id }}"

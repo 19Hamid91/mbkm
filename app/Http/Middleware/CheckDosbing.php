@@ -17,7 +17,7 @@ class CheckDosbing
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == "DOSEN") {
+        if (Auth::user()->role == "DOSEN" || isset(Auth::user()->dosen->mbkm)) {
             return $next($request);
         } else {
             return redirect()->back()->with('fail', 'Role tidak diijinkan');

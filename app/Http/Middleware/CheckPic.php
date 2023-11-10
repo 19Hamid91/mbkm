@@ -17,7 +17,7 @@ class CheckPic
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == "PIC") {
+        if (Auth::user()->role == "PIC" || isset(Auth::user()->pic)) {
             return $next($request);
         } else {
             return redirect()->back()->with('fail', 'Role tidak diijinkan');
